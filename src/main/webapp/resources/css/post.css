@@ -1,0 +1,155 @@
+@charset "UTF-8";
+
+.commentBox {
+	border-bottom: 1px solid #ddd;
+	background-color: #f9f9f9;
+	border-top: 1px solid #ddd;
+	padding: 20px 0px 20px 20px;
+	display: flex;
+}
+
+.profileImgBox {
+	width: 65px;
+	height: 65px;
+}
+
+.profileImg {
+	border-radius: 50px;
+	border: 1px solid #ccc;
+	width: 100%;
+	height: 100%;
+}
+
+.commentBtn {
+	border: 1px solid #e1e1e1 !important;
+	width: 84px !important;
+	background-color: #f2f2f2 !important;
+}
+
+.commentIdStar {
+	width: 100px;
+	margin-left: 24px;
+}
+
+.commentId {
+	font-size: 18px;
+	color: #5b5d5f;
+}
+
+.thumbsBtn {
+	cursor: pointer;
+}
+
+.cBtn {
+	margin: 10px;
+}
+
+a {
+	text-decoration: none !important;
+}
+
+.containerDiv {
+	margin-top: 50px;
+}
+
+.postTable {
+	text-align: center;
+	border: 1px solid #dddddd;
+}
+
+.viewPostTH {
+	background-color: #eeeeee;
+	text-align: center;
+}
+
+.categoryTd {
+	text-align: left;
+	padding-left: 80px;
+	font-weight: bold;
+	font-size: 17pt;
+}
+
+.TitleTd {
+	width: 20%;
+}
+
+.contentTr {
+	height: 300px;
+}
+
+.contentTd {
+	min-height: 200px;
+	text-align: left;
+}
+
+.commentTable {
+	border: 1px solid #dddddd;
+	margin-top: 20px;
+}
+
+.commentWriteTh {
+	background-color: #eeeeee;
+	text-align: center;
+	padding-left: 100px;
+}
+
+.commentBtnTh {
+	background-color: #eeeeee;
+	width: 50px;
+}
+
+#replyContent {
+	resize: none;
+	width: 100%;
+}
+
+#commentField {
+	background-color: #eee;
+}
+
+.commentDateP {
+	font-size: 12px;
+	color: #666;
+}
+
+.commentContentDiv {
+	width: 80%;
+}
+
+.commentContentP {
+	margin-top: 20px;
+}
+
+.commentBtnDiv {
+	margin-top: 20px;
+	color: red;
+	width: 100px;
+}
+
+.thumbsP {
+	display: inline-block;
+}
+
+.replyBtn {
+	display: block;
+}
+
+.paginationDiv {
+	text-align: center;
+}
+
+.replyBox {
+	width: 100%;
+	padding: 10px 0px 10px 10px;
+	background-color: #eee;
+}
+
+#rereplyText {
+	width: 1000px;
+	height: 50px;
+}
+
+.BtnReplyBoxDiv {
+	display: inline-block;
+	margin-left: 15px;
+}

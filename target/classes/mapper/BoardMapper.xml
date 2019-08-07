@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.th.bo.mapper.BoardMapper">
+
+	<sql id="criteria">
+		<trim prefix="and(" suffix=") " prefixOverrides="OR">
+			<foreach item='type' collection="typeArr">
+				<trim prefix="OR">
+					<choose>
+						<when test="type== 'T'.toString()">
+							post_title like '%' || #{keyword}||'%'
+						</when>
+						<when test="type== 'C'.toString()">
+							post_content like '%' || #{keyword}||'%'
+						</when>
+						<when test="type== 'W'.toString()">
+							post_writer like '%' || #{keyword}||'%'
+						</when>
+					</choose>
+				</trim>
+			</foreach>
+		</trim>
+	</sql>
+
+	<select id="selectboardList" resultType="board">
+		select 
+			* 
+		from 
+			(select
+				 rownum rno,b.* 
+			from 
+				board_post b 
+			where 
+				isshow != 'N'
+		<include refid="criteria"></include>
+			order by 
+				post_no desc
+			)
+		 where
+		 	rno between (#{pageNum}-1)*#{amount}+1 and (#{pageNum})*#{amount}
+	</select>
+	
+	<select id="selectPost" resultType="board">
+		select 
+			* 
+		from 
+			board_post full join board_files on post_no = file_pno
+		where 
+			post_no = #{postNo}
+	</select>
+
+	<select id="countTotal" resultType="int">
+		select 
+			count(*) 
+		from 
+			board_post 
+		where 
+			isshow != 'N'
+		<include refid="criteria"></include>
+	</select>
+	
+	<update id="updatePostHit">
+		update board_post set post_hit = post_hit+1 where post_no = #{postNo}
+	</update>
+	
+	<insert id="insertPost">
+		insert into 
+			board_post 
+		values(
+			board_post_seq.nextval,#{postWriter},#{postTitle},#{postContent},sysdate,0,'Y',#{postCategory}
+		)
+	</insert>
+	
+	<insert id="insertFile">
+		insert into
+			board_files
+		values(
+			board_file_seq.nextval,board_post_seq.currval,#{filePath},#{fileName}
+		)
+	</insert>
+	
+	<update id="updatePost">
+		update board_post set isshow = 'Y'
+		<if test="postTitle != null">
+			, post_title = #{postTitle}
+		</if>
+		<if test="postContent != null">
+			, post_content = #{postContent}
+		</if>
+		<if test="postCategory != null">
+			, post_category = #{postCategory}
+		</if>
+		where post_no = #{postNo}
+	</update>
+	
+	<delete id="deletePost">
+		delete from board_post where post_no = #{postNo}
+	</delete>
+
+	<select id="selectComment" resultType="comment">
+		<![CDATA[
+			select 
+				c.*,m.* 
+			from 
+				(select 
+					rownum rno,LEVEL lev,c.* 
+				from 
+					board_comment c 
+				where 
+					comment_pno = #{postNo} and isshow != 'N' and rownum <= (#{ctr.pageNum}*#{ctr.amount})
+				START WITH 
+					comment_parent IS NULL 
+				CONNECT BY PRIOR 
+					comment_no = comment_parent
+				) c join board_member m on comment_id = user_id 
+			 where rno > (#{ctr.pageNum}-1)*#{ctr.amount}
+		]]>
+	</select>
+	
+	<select id="commentCountTotal" resultType="int">
+		select 
+			count(*) 
+		from
+			board_comment 
+		where 
+			comment_pno = #{postNo} and isshow != 'N'
+	</select>
+	
+	<insert id="insertComment">
+		insert into 
+			board_comment 
+		values(
+			board_comment_seq.nextval,#{commentPno},#{commentId},#{commentContent},sysdate,0,
+			<if test="commentParent != 0">
+				#{commentParent}
+			</if>
+			<if test="commentParent == 0">
+				null
+			</if>
+			,'Y'
+		)
+	</insert>
+	
+	<update id="updateThumbs" statementType="CALLABLE" parameterType="thumbs">
+		{ call boardCommentThumbsUp (#{thumbsMno},#{thumbsCno})
+	</update>
+	
+	<select id="selectThumbs" resultType="int">
+		select 
+			count(*) 
+		from 
+			board_thumbs 
+		where 
+			thumbs_cno = #{thumbsCno} and thumbs_mno = #{thumbsMno}
+	</select>
+	
+</mapper>

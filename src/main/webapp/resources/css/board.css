@@ -1,0 +1,53 @@
+@charset "UTF-8";
+
+.boardContainer {
+	text-align: center;
+}
+
+.boardBox {
+	display: inline-block;
+	margin: 50px;
+	width: 1200px;
+	height: 700px;
+}
+
+#searchBtn {
+	background-image: url('/bo/resources/img/search.png');
+	padding: 0px;
+	background-size: 110% 110%;
+	background-color: white;
+	border: none;
+	outline: none;
+	width: 25px;
+	height: 25px
+}
+
+th {
+	background-color: #eeeeee;
+	text-align: center;
+}
+
+.amountDiv{
+	margin: 10px;
+}
+.boardTable{
+	text-align: center; border: 1px solid #dddddd;
+}
+.th100{
+	width: 100px;
+}
+#type{
+	padding: 2px; height: 26px;
+}
+.searchDiv{
+	text-align:left;
+}
+.searchLabel{
+	padding: 2px;
+}
+.writeBtnDiv{
+	text-align: left;
+}
+.paginationDiv{
+	text-align: center;
+}

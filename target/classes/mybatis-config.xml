@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<settings>
+	  	<setting name="cacheEnabled" value="true"/>
+	  	<setting name="multipleResultSetsEnabled" value="true"/>
+	  	<setting name="useColumnLabel" value="true"/>
+	  	<setting name="useGeneratedKeys" value="false"/>	
+	  	<setting name="autoMappingBehavior" value="PARTIAL"/>	
+	  	<setting name="defaultExecutorType" value="SIMPLE"/>
+	  	<setting name="jdbcTypeForNull" value="NULL"/>
+	  	<setting name="mapUnderscoreToCamelCase" value="true"/>	
+	 </settings>
+	
+	<typeAliases>
+	  <typeAlias alias="member" type="kr.th.bo.vo.MemberVO"/>
+	  <typeAlias alias="board" type="kr.th.bo.vo.BoardVO"/>
+	  <typeAlias alias="comment" type="kr.th.bo.vo.CommentVO"/>
+	  <typeAlias alias="thumbs" type="kr.th.bo.vo.ThumbsVO"/>
+	  <typeAlias alias="cri" type="kr.th.bo.vo.domain.Criteria"/>
+	  <typeAlias alias="page" type="kr.th.bo.vo.domain.PageingInfo"/>
+	</typeAliases>
+	
+	 <mappers>
+        <mapper resource="mapper/MemberMapper.xml"/>
+        <mapper resource="mapper/BoardMapper.xml"/>
+    </mappers>
+    
+</configuration>

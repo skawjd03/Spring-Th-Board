@@ -1,0 +1,17 @@
+@charset "UTF-8";
+.updateDiv{
+	 margin-top: 50px;
+}
+.updateTable{
+	 text-align: center; 
+	 border: 1px solid #dddddd;
+}
+.updateTableTh{
+	 background-color: #eeeeee; text-align: center;
+}
+.td120{
+	 width: 120px;
+}
+#postContent{
+	height: 350px; resize: none;
+}

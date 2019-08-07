@@ -1,0 +1,29 @@
+@charset "UTF-8";
+
+html, body {
+	margin: 0;
+	padding: 0;
+}
+
+.joinContainer {
+	margin-top: 200px;
+	text-align: center;
+}
+
+.joinBox {
+	display: inline-block;
+	width: 450px;
+	padding: 30px;
+}
+
+#joinBtn {
+	background-color: #dedeff;
+	border: 1px solid gray;
+	border-radius: 5px;
+}
+.joinIconDiv{
+	width: 50px;
+}
+.pswdlabel{
+	font-size: 12px;
+}

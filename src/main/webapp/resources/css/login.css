@@ -1,0 +1,59 @@
+@charset "UTF-8";
+
+html, body {
+	margin: 0;
+	padding: 0;
+}
+
+.loginContainer {
+	margin-top: 200px;
+	text-align: center;
+}
+
+.loginBox {
+	border: 1px solid rgb(180, 180, 180);
+	border-radius: 5px;
+	display: inline-block;
+	width: 450px;
+	padding: 30px;
+}
+
+.loginInput {
+	width: 300px;
+	height: 40px;
+}
+
+.loginIcon {
+	width: 40px;
+	height: 40px;
+}
+
+.loginPtag {
+	display: inline-block;
+	margin: 0;
+}
+
+.loginDiv {
+	padding-bottom: 10px;
+}
+
+.inputDiv {
+	margin: 20px;
+}
+
+.loginBtn, .joinBtn {
+	width: 130px;
+	height: 40px;
+	border: 1px solid rgb(187, 187, 187);
+	border-radius: 5px;
+	font-weight: bold;
+}
+.centerDiv{
+	text-align: center;
+}
+.prightDiv{
+	padding-right: 160px;
+}
+.loginPtag{
+	 color: red;
+}
