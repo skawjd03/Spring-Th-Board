@@ -24,7 +24,7 @@
                 <select name="" id="amount">
                     <option value="">--</option>
                     <option value="10">10개씩</option>
-                    <option value="20">20개씩</option>
+                    <option value="20" selected="selected">20개씩</option>
                     <option value="30">30개씩</option>
                 </select>
             </div>
