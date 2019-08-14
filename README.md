@@ -5,6 +5,27 @@
 할 때 마다 공부한 내용을 추가적으로 반영하고 방식을 바꿔가면서 하니까 <br>
 매번 새로운 걸 하는 거 같았다.
 <br>
+
+### 개발환경
+ #### FRONT END
+<li>HTML5</li>
+<li>JAVASCRIPT</li>
+<li>CSS#</li>
+<li>AJAX</li>
+
+#### DBMS
+<li>ORACLE</li>
+
+#### FRAMEWORK
+<li>SPRING MVC</li>
+
+#### BACK END
+<li>JAVA</li>
+<li>JSP / SERVLET</li>
+
+#### WEB SERVER
+<li>APACHE TOMECAT 8.5</li>
+
 <br>
 확실히 처음 할 때보다 여러번 하고 나니까 <br>
 흐름을 알고, 생각해야될 점을 아니까 좀 더 편하게 코딩했지만
